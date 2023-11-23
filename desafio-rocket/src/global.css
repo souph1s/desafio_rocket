@@ -1,0 +1,20 @@
+:root {
+  --white: #fff;
+  --blue: #4ea8de;
+  --purpledark: #5e60ce;
+  --gray-600: #1a1a1a;
+  --gray-700: #0d0d0d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: "Inter", sans-serif;
+}
