@@ -2,19 +2,29 @@
   background: var(--gray-700);
   display: flex;
   justify-content: center;
-  padding: 1.25rem 0;
   width: auto;
   height: 200px;
 }
 
 .strong {
+  margin-top: 5.12rem;
   font-weight: 900;
   font-size: 40px;
   color: var(--blue);
 }
 
 .strongPurple {
+  margin-top: 5.12rem;
   font-weight: 900;
   font-size: 40px;
   color: var(--purpledark);
+}
+
+.header img {
+  margin-top: 5.8rem;
+  margin-right: 0.5rem;
+  width: 1.37rem;
+  height: 2.25rem;
+  align-items: center;
+  display: flex;
 }
