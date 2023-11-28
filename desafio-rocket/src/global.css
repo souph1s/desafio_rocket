@@ -1,7 +1,9 @@
 :root {
   --white: #fff;
+  --blue-dark: #1e6f9f;
   --blue: #4ea8de;
   --purpledark: #5e60ce;
+  --gray-500: #262626;
   --gray-600: #1a1a1a;
   --gray-700: #0d0d0d;
 }
@@ -10,6 +12,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background: var(--gray-600);
 }
 
 body,
