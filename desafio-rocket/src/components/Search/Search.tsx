@@ -4,12 +4,17 @@ import styles from "./Search.module.css";
 
 export function Task() {
   return (
-    <form className={styles.taskForm}>
-      <textarea placeholder="Adicione uma nova tarefa" />
-      <button>
-        Criar
-        <PlusCircle size={16} />
-      </button>
-    </form>
+    <div className={styles.taskForm}>
+      <form className={styles.taskForm}>
+        <textarea
+          className={styles.textarea}
+          placeholder="Adicione uma nova tarefa"
+        />
+        <button>
+          Criar
+          <PlusCircle size={16} className={styles.img} />
+        </button>
+      </form>
+    </div>
   );
 }
