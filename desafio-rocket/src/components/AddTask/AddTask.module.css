@@ -19,6 +19,7 @@
 }
 
 .taskForm button {
+  display: flex;
   border: 0;
   border-radius: 8px;
   background: var(--blue-dark);
@@ -26,5 +27,11 @@
   color: var(--white);
   margin-left: 1rem;
   height: 3.2rem;
-  gap: 0.5rem;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.taskForm span {
+  margin-right: 0.5rem;
 }

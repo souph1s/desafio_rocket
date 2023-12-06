@@ -1,0 +1,71 @@
+/* Tasks.module.css */
+
+/* Centraliza o conteúdo na tela horizontal e verticalmente */
+.centeredContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+/* Estiliza o cabeçalho de tarefas */
+.taskHeader {
+  border-bottom: 1px solid var(--gray-300);
+  justify-content: space-between;
+  display: flex;
+  width: 46rem;
+  padding-bottom: 24px;
+}
+
+/* Estilo para o texto "Tarefas criadas" */
+.taskCreated {
+  color: var(--blue);
+}
+
+/* Estilo para o texto "Concluídas" */
+.taskCompleted {
+  color: var(--purple);
+}
+
+/* Centraliza o conteúdo na tela verticalmente */
+.centeredTasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+/* Container para centralizar o clipboard na tela */
+.clipboardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo para a imagem do clipboard */
+.clipboard {
+  max-width: 100%; /* Ajusta a largura máxima conforme necessário */
+}
+
+/* Estilo para o texto "Você ainda não tem tarefas cadastradas" */
+.noTask {
+  color: var(--gray-300, #808080);
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin-top: 16px; /* Espaçamento superior */
+}
+
+/* Estilo para o texto "Crie tarefas e organize seus itens a fazer" */
+.noTaskThin {
+  color: var(--gray-300, #808080);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  margin-top: 8px; /* Espaçamento superior menor */
+}

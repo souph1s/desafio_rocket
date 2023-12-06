@@ -1,12 +1,14 @@
 import { Header } from "./components/Header/Header";
-import { Task } from "./components/Search/Search";
+import { AddTask } from "./components/AddTask/AddTask";
 import "./global.css";
+import { Tasks } from "./components/Tasks/Tasks";
 
 function App() {
   return (
     <>
       <Header />
-      <Task />
+      <AddTask />
+      <Tasks />
     </>
   );
 }

@@ -1,17 +1,17 @@
 import { PlusCircle } from "@phosphor-icons/react";
 
-import styles from "./Search.module.css";
+import styles from "./AddTask.module.css";
 
-export function Task() {
+export function AddTask() {
   return (
     <div className={styles.taskForm}>
       <form className={styles.taskForm}>
         <textarea
+          placeholder="Adicione aqui sua tarefa"
           className={styles.textarea}
-          placeholder="Adicione uma nova tarefa"
-        />
-        <button>
-          Criar
+        ></textarea>
+        <button className={styles.button}>
+          <span>Criar</span>
           <PlusCircle size={16} className={styles.img} />
         </button>
       </form>
