@@ -18,12 +18,18 @@ export function Tasks() {
 
       <div className={styles.centeredTasks}>
         <p className={styles.tasksAdded}>
-          <img src="/src/assets/Radio.svg" alt="" />
+          <button className={styles.checkButton}>
+            <img src="/src/assets/Radio.svg" />
+          </button>
           Integer urna interdum massa libero auctor neque turpis turpis semper.
+          Duis vel sed fames integer.
+          <button className={styles.trashButton}>
+            <img src="/src/assets/Trash.svg" />
+          </button>
         </p>
       </div>
-      
-      <div className={styles.centeredContainer}>
+
+      <div className={styles.centeredNoTasks}>
         <div className={styles.clipboardContainer}>
           <img
             className={styles.clipboard}

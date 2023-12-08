@@ -40,7 +40,7 @@
 }
 
 /* Centraliza o conteúdo na tela verticalmente */
-.centeredTasks {
+.centeredNoTasks {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,13 +86,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
 }
 
 .tasksAdded {
   background: var(--gray-500);
   padding: 1rem;
-  width: 100%;
   display: flex;
   justify-content: left;
   gap: 12px;
@@ -101,4 +99,23 @@
   border-radius: 8px;
   border: 1px solid var(--Gray-400, #333);
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.checkButton {
+  background: transparent;
+  border: 0;
+  color: var(--gray-400);
+  cursor: pointer;
+}
+
+.trashButton {
+  background: transparent;
+  border: 0;
+  color: var(--gray-400);
+  cursor: pointer;
+  position: absolute;
+  right: 12px; /* Ajusta para a posição desejada no eixo x */
+  bottom: 50%; /* Ajusta para a posição desejada no eixo y */
+  transform: translateY(50%); /* Ajusta para a posição desejada no eixo y */
 }
