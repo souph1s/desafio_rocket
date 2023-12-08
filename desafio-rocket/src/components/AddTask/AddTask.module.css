@@ -18,6 +18,11 @@
   vertical-align: middle;
 }
 
+.taskForm textarea:focus {
+  outline: none;
+  border: 1px solid var(--purpledark);
+}
+
 .taskForm button {
   display: flex;
   border: 0;
@@ -27,9 +32,14 @@
   color: var(--white);
   margin-left: 1rem;
   height: 3.2rem;
-
   justify-content: center;
   align-items: center;
+}
+
+.taskForm button:hover {
+  cursor: pointer;
+  background: var(--blue);
+  transition: background-color 0.2s;
 }
 
 .taskForm span {

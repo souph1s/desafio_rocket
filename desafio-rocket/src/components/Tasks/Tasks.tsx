@@ -1,3 +1,4 @@
+import { CheckCircle, Circle, Trash } from "@phosphor-icons/react";
 import styles from "./Tasks.module.css";
 
 export function Tasks() {
@@ -19,12 +20,25 @@ export function Tasks() {
       <div className={styles.centeredTasks}>
         <p className={styles.tasksAdded}>
           <button className={styles.checkButton}>
-            <img src="/src/assets/Radio.svg" />
+            <Circle size={24} />
           </button>
           Integer urna interdum massa libero auctor neque turpis turpis semper.
           Duis vel sed fames integer.
           <button className={styles.trashButton}>
-            <img src="/src/assets/Trash.svg" />
+            <Trash size={18} />
+          </button>
+        </p>
+      </div>
+
+      <div className={styles.centeredTasks}>
+        <p className={styles.completedTask}>
+          <button className={styles.checkedButton}>
+            <CheckCircle size={24} weight="fill" />
+          </button>
+          Integer urna interdum massa libero auctor neque turpis turpis semper.
+          Duis vel sed fames integer.
+          <button className={styles.trashButton}>
+            <Trash size={18} />
           </button>
         </p>
       </div>

@@ -89,6 +89,7 @@
 }
 
 .tasksAdded {
+  margin-top: 1rem;
   background: var(--gray-500);
   padding: 1rem;
   display: flex;
@@ -105,17 +106,56 @@
 .checkButton {
   background: transparent;
   border: 0;
-  color: var(--gray-400);
+  color: var(--blue);
   cursor: pointer;
+}
+
+.checkButton :hover {
+  background-color: #1e6f9f; /* Cor de fundo no hover */
+  border-radius: 80%;
+  transition: background-color 0.3s ease;
+}
+
+.checkedButton {
+  background: transparent;
+  border: 0;
+  color: var(--purpledark);
+  cursor: pointer;
+}
+
+.checkedButton :hover {
+  color: var(--purple); /* Cor de fundo no hover */
+  transition: background-color 0.3s ease;
 }
 
 .trashButton {
   background: transparent;
   border: 0;
-  color: var(--gray-400);
+  color: var(--gray-300);
   cursor: pointer;
   position: absolute;
   right: 12px; /* Ajusta para a posição desejada no eixo x */
   bottom: 50%; /* Ajusta para a posição desejada no eixo y */
   transform: translateY(50%); /* Ajusta para a posição desejada no eixo y */
+}
+
+.trashButton :hover {
+  border-radius: 4px;
+  background: var(--gray-400);
+  color: var(--red);
+}
+
+.completedTask {
+  margin-top: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: left;
+  gap: 12px;
+  width: 46rem;
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid var(--gray-500);
+  background: var(--gray-500);
+  color: var(--gray-300);
+  text-decoration: line-through;
 }
