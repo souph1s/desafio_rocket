@@ -5,11 +5,25 @@ export function Tasks() {
     <>
       <div className={styles.centeredContainer}>
         <div className={styles.taskHeader}>
-          <p className={styles.taskCreated}>Tarefas criadas</p>
-          <p className={styles.taskCompleted}>Concluídas</p>
+          <p className={styles.taskCreated}>
+            Tarefas criadas
+            <span className={styles.counter}>0</span>
+          </p>
+          <p className={styles.taskCompleted}>
+            Concluídas
+            <span className={styles.counter}>0</span>
+          </p>
         </div>
       </div>
+
       <div className={styles.centeredTasks}>
+        <p className={styles.tasksAdded}>
+          <img src="/src/assets/Radio.svg" alt="" />
+          Integer urna interdum massa libero auctor neque turpis turpis semper.
+        </p>
+      </div>
+      
+      <div className={styles.centeredContainer}>
         <div className={styles.clipboardContainer}>
           <img
             className={styles.clipboard}
