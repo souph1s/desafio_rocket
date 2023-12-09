@@ -8,18 +8,16 @@ interface TasksProps {
 
 export function Tasks({ taskItems }: TasksProps) {
   const [completedTasks, setCompletedTasks] = useState<string[]>([]);
+  const [deletedTasks, setDeletedTasks] = useState<string[]>([]);
 
   const handleTaskToggle = (clickedTask: string) => {
-    // Verifica se a tarefa já está na lista de concluídas
     const isTaskCompleted = completedTasks.includes(clickedTask);
 
     if (isTaskCompleted) {
-      // Se estiver concluída, remove da lista de concluídas
       setCompletedTasks((prevCompletedTasks) =>
         prevCompletedTasks.filter((task) => task !== clickedTask)
       );
     } else {
-      // Se não estiver concluída, adiciona na lista de concluídas
       setCompletedTasks((prevCompletedTasks) => [
         ...prevCompletedTasks,
         clickedTask,
@@ -27,9 +25,19 @@ export function Tasks({ taskItems }: TasksProps) {
     }
   };
 
+  const handleDeleteTask = (deletedTask: string) => {
+    // Adiciona a tarefa excluída à lista
+    setDeletedTasks((prevDeletedTasks) => [...prevDeletedTasks, deletedTask]);
+
+    // Remove a tarefa excluída da lista de concluídas, se estiver lá
+    setCompletedTasks((prevCompletedTasks) =>
+      prevCompletedTasks.filter((task) => task !== deletedTask)
+    );
+  };
+
   const rearrangeTasks = () => {
     const tasksNotCompleted = taskItems.filter(
-      (task) => !completedTasks.includes(task)
+      (task) => !completedTasks.includes(task) && !deletedTasks.includes(task)
     );
     const rearrangedTasks = [...tasksNotCompleted, ...completedTasks];
     return rearrangedTasks;
@@ -37,7 +45,6 @@ export function Tasks({ taskItems }: TasksProps) {
 
   return (
     <>
-      {/* Cabeçalho das tarefas */}
       <div className={styles.centeredContainer}>
         <div className={styles.taskHeader}>
           <p className={styles.taskCreated}>
@@ -53,12 +60,9 @@ export function Tasks({ taskItems }: TasksProps) {
         </div>
       </div>
 
-      {/* Verificando se existem tarefas a serem exibidas */}
       {taskItems.length > 0 || completedTasks.length > 0 ? (
-        // Exibe tarefas se tiver
         <div className={styles.centeredTasks}>
           <div className={styles.taskList}>
-            {/* Renderiza tarefas reorganizadas */}
             {rearrangeTasks().map((task, index) => (
               <p
                 key={index}
@@ -77,7 +81,10 @@ export function Tasks({ taskItems }: TasksProps) {
                   )}
                 </button>
                 {task}
-                <button className={styles.trashButton}>
+                <button
+                  className={styles.trashButton}
+                  onClick={() => handleDeleteTask(task)}
+                >
                   <Trash size={18} />
                 </button>
               </p>
@@ -85,7 +92,6 @@ export function Tasks({ taskItems }: TasksProps) {
           </div>
         </div>
       ) : (
-        // Exibe mensagem se não houver tarefas
         <div className={styles.centeredNoTasks}>
           <div className={styles.clipboardContainer}>
             <img
