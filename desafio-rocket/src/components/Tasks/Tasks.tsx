@@ -26,18 +26,19 @@ export function Tasks({ taskItems }: TasksProps) {
       {taskItems.length > 0 ? (
         // Exibe tarefas se tiver
         <div className={styles.centeredTasks}>
-          {taskItems.map((task, index) => (
-            // Exibe cada tarefa
-            <p key={index} className={styles.tasksAdded}>
-              <button className={styles.checkButton}>
-                <Circle size={24} />
-              </button>
-              {task}
-              <button className={styles.trashButton}>
-                <Trash size={18} />
-              </button>
-            </p>
-          ))}
+          <div className={styles.taskList}>
+            {taskItems.map((task, index) => (
+              <p key={index} className={styles.tasksAdded}>
+                <button className={styles.checkButton}>
+                  <Circle size={24} />
+                </button>
+                {task}
+                <button className={styles.trashButton}>
+                  <Trash size={18} />
+                </button>
+              </p>
+            ))}
+          </div>
         </div>
       ) : (
         // Exibe mensagem se não houver tarefas
