@@ -1,4 +1,3 @@
-// App.tsx
 import { Header } from "./components/Header/Header";
 import { AddTask } from "./components/AddTask/AddTask";
 import "./global.css";

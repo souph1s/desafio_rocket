@@ -1,4 +1,3 @@
-// AddTask.tsx
 import { PlusCircle } from "@phosphor-icons/react";
 import styles from "./AddTask.module.css";
 import { FormEvent, useState } from "react";

@@ -1,11 +1,40 @@
-import { Circle, Trash } from "@phosphor-icons/react";
+import { Circle, CheckCircle, Trash } from "@phosphor-icons/react";
 import styles from "./Tasks.module.css";
+import { useState } from "react";
 
 interface TasksProps {
   taskItems: string[];
 }
 
 export function Tasks({ taskItems }: TasksProps) {
+  const [completedTasks, setCompletedTasks] = useState<string[]>([]);
+
+  const handleTaskToggle = (clickedTask: string) => {
+    // Verifica se a tarefa já está na lista de concluídas
+    const isTaskCompleted = completedTasks.includes(clickedTask);
+
+    if (isTaskCompleted) {
+      // Se estiver concluída, remove da lista de concluídas
+      setCompletedTasks((prevCompletedTasks) =>
+        prevCompletedTasks.filter((task) => task !== clickedTask)
+      );
+    } else {
+      // Se não estiver concluída, adiciona na lista de concluídas
+      setCompletedTasks((prevCompletedTasks) => [
+        ...prevCompletedTasks,
+        clickedTask,
+      ]);
+    }
+  };
+
+  const rearrangeTasks = () => {
+    const tasksNotCompleted = taskItems.filter(
+      (task) => !completedTasks.includes(task)
+    );
+    const rearrangedTasks = [...tasksNotCompleted, ...completedTasks];
+    return rearrangedTasks;
+  };
+
   return (
     <>
       {/* Cabeçalho das tarefas */}
@@ -13,24 +42,39 @@ export function Tasks({ taskItems }: TasksProps) {
         <div className={styles.taskHeader}>
           <p className={styles.taskCreated}>
             Tarefas criadas
-            <span className={styles.counter}>0</span>
+            <span className={styles.counter}>{taskItems.length}</span>
           </p>
           <p className={styles.taskCompleted}>
             Concluídas
-            <span className={styles.counter}>0</span>
+            <span className={styles.counter}>
+              {completedTasks.length} de {taskItems.length}
+            </span>
           </p>
         </div>
       </div>
 
       {/* Verificando se existem tarefas a serem exibidas */}
-      {taskItems.length > 0 ? (
+      {taskItems.length > 0 || completedTasks.length > 0 ? (
         // Exibe tarefas se tiver
         <div className={styles.centeredTasks}>
           <div className={styles.taskList}>
-            {taskItems.map((task, index) => (
-              <p key={index} className={styles.tasksAdded}>
-                <button className={styles.checkButton}>
-                  <Circle size={24} />
+            {/* Renderiza tarefas reorganizadas */}
+            {rearrangeTasks().map((task, index) => (
+              <p
+                key={index}
+                className={`${styles.tasksAdded} ${
+                  completedTasks.includes(task) ? styles.completedTask : ""
+                }`}
+              >
+                <button
+                  className={styles.checkButton}
+                  onClick={() => handleTaskToggle(task)}
+                >
+                  {completedTasks.includes(task) ? (
+                    <CheckCircle size={32} color="#5E60CE" weight="fill" />
+                  ) : (
+                    <Circle size={24} />
+                  )}
                 </button>
                 {task}
                 <button className={styles.trashButton}>
@@ -61,17 +105,3 @@ export function Tasks({ taskItems }: TasksProps) {
     </>
   );
 }
-
-// Tarefas concluidas
-//   <div className={styles.centeredTasks}>
-//     <p className={styles.completedTask}>
-//       <button className={styles.checkedButton}>
-//         <CheckCircle size={24} weight="fill" />
-//       </button>
-//       Integer urna interdum massa libero auctor neque turpis turpis semper.
-//       Duis vel sed fames integer.
-//       <button className={styles.trashButton}>
-//         <Trash size={18} />
-//       </button>
-//     </p>
-//   </div>

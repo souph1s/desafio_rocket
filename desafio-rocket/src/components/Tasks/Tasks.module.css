@@ -1,5 +1,3 @@
-/* Tasks.module.css */
-
 /* Centraliza o conteúdo na tela horizontal e verticalmente */
 .centeredContainer {
   display: flex;
@@ -105,11 +103,24 @@
   width: 46rem;
   color: var(--gray-100);
   border-radius: 8px;
-  border: 1px solid var(--Gray-400, #333);
+  border: 1px solid var(--gray-400);
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
   position: relative;
 }
 
+.completedTask {
+  padding: 1rem;
+  display: flex;
+  justify-content: left;
+  gap: 12px;
+  width: 46rem;
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid var(--gray-500);
+  background: var(--gray-500);
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
 .checkButton {
   background: transparent;
   border: 0;
@@ -150,19 +161,4 @@
   border-radius: 4px;
   background: var(--gray-400);
   color: var(--red);
-}
-
-.completedTask {
-  margin-top: 1rem;
-  padding: 1rem;
-  display: flex;
-  justify-content: left;
-  gap: 12px;
-  width: 46rem;
-  position: relative;
-  border-radius: 8px;
-  border: 1px solid var(--gray-500);
-  background: var(--gray-500);
-  color: var(--gray-300);
-  text-decoration: line-through;
 }
