@@ -10,17 +10,22 @@
   resize: none;
   border-radius: 8px;
   width: 39rem;
-  align-items: center;
   color: var(--white);
-  line-height: 1.4;
+  line-height: 3.3rem;
   height: 3.3rem;
-  text-align: center;
-  vertical-align: middle;
+  text-align: left;
+  padding-left: 0.5rem;
 }
 
 .taskForm textarea:focus {
   outline: none;
   border: 1px solid var(--purpledark);
+}
+
+.taskForm textarea::placeholder {
+  padding-left: 0.5rem;
+  text-align: left;
+  line-height: 3.3rem; /* Igual à altura do textarea */
 }
 
 .taskForm button {

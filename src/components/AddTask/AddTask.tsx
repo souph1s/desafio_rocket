@@ -18,11 +18,11 @@ export function AddTask({ onAddTask }: { onAddTask: (task: string) => void }) {
         <textarea
           value={newTaskText}
           onChange={(e) => setNewTaskText(e.target.value)}
-          placeholder="Adicione aqui sua tarefa"
+          placeholder="Add here your task..."
           className={styles.textarea}
         ></textarea>
         <button type="submit" className={styles.button}>
-          <span>Criar</span>
+          <span>Create</span>
           <PlusCircle size={16} className={styles.img} />
         </button>
       </form>

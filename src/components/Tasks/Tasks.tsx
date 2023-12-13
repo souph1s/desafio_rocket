@@ -1,4 +1,9 @@
-import { Circle, CheckCircle, Trash } from "@phosphor-icons/react";
+import {
+  Circle,
+  CheckCircle,
+  Trash,
+  ClipboardText,
+} from "@phosphor-icons/react";
 import styles from "./Tasks.module.css";
 import { useState } from "react";
 
@@ -48,13 +53,13 @@ export function Tasks({ taskItems }: TasksProps) {
       <div className={styles.centeredContainer}>
         <div className={styles.taskHeader}>
           <p className={styles.taskCreated}>
-            Tarefas criadas
+            Created Tasks
             <span className={styles.counter}>{taskItems.length}</span>
           </p>
           <p className={styles.taskCompleted}>
-            Concluídas
+            Completed Tasks
             <span className={styles.counter}>
-              {completedTasks.length} de {taskItems.length}
+              {completedTasks.length} of {taskItems.length}
             </span>
           </p>
         </div>
@@ -94,17 +99,13 @@ export function Tasks({ taskItems }: TasksProps) {
       ) : (
         <div className={styles.centeredNoTasks}>
           <div className={styles.clipboardContainer}>
-            <img
-              className={styles.clipboard}
-              src="/src/assets/Clipboard.png"
-              alt="Clipboard"
-            />
+            <ClipboardText size={68} color="#8a8a8a" weight="fill" />
           </div>
           <p className={styles.noTask}>
-            Você ainda não tem tarefas cadastradas
+            You don't have any registered tasks yet!
           </p>
           <p className={styles.noTaskThin}>
-            Crie tarefas e organize seus itens a fazer
+            Create tasks and organize your to-do items.
           </p>
         </div>
       )}
