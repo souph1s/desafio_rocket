@@ -12,12 +12,20 @@ export function AddTask({ onAddTask }: { onAddTask: (task: string) => void }) {
     setNewTaskText("");
   }
 
+  function handleKeyPress(event: React.KeyboardEvent<HTMLTextAreaElement>) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      handleCreateNewTask(event as FormEvent);
+    }
+  }
+
   return (
     <div className={styles.taskForm}>
       <form onSubmit={handleCreateNewTask} className={styles.taskForm}>
         <textarea
           value={newTaskText}
           onChange={(e) => setNewTaskText(e.target.value)}
+          onKeyDown={handleKeyPress}
           placeholder="Add here your task..."
           className={styles.textarea}
         ></textarea>
