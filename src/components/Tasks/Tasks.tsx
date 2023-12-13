@@ -5,7 +5,7 @@ import {
   ClipboardText,
 } from "@phosphor-icons/react";
 import styles from "./Tasks.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface TasksProps {
   taskItems: string[];
@@ -13,7 +13,12 @@ interface TasksProps {
 
 export function Tasks({ taskItems }: TasksProps) {
   const [completedTasks, setCompletedTasks] = useState<string[]>([]);
+  const [totalCreatedTasks, setTotalCreatedTasks] = useState<number>(0);
   const [deletedTasks, setDeletedTasks] = useState<string[]>([]);
+
+  useEffect(() => {
+    setTotalCreatedTasks(taskItems.length);
+  }, [taskItems]);
 
   const handleTaskToggle = (clickedTask: string) => {
     const isTaskCompleted = completedTasks.includes(clickedTask);
@@ -31,13 +36,13 @@ export function Tasks({ taskItems }: TasksProps) {
   };
 
   const handleDeleteTask = (deletedTask: string) => {
-    // Adiciona a tarefa excluída à lista
     setDeletedTasks((prevDeletedTasks) => [...prevDeletedTasks, deletedTask]);
 
-    // Remove a tarefa excluída da lista de concluídas, se estiver lá
     setCompletedTasks((prevCompletedTasks) =>
       prevCompletedTasks.filter((task) => task !== deletedTask)
     );
+
+    setTotalCreatedTasks(totalCreatedTasks - 1);
   };
 
   const rearrangeTasks = () => {
@@ -54,12 +59,12 @@ export function Tasks({ taskItems }: TasksProps) {
         <div className={styles.taskHeader}>
           <p className={styles.taskCreated}>
             Created Tasks
-            <span className={styles.counter}>{taskItems.length}</span>
+            <span className={styles.counter}>{totalCreatedTasks}</span>
           </p>
           <p className={styles.taskCompleted}>
             Completed Tasks
             <span className={styles.counter}>
-              {completedTasks.length} of {taskItems.length}
+              {completedTasks.length} of {totalCreatedTasks}
             </span>
           </p>
         </div>

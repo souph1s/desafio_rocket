@@ -25,7 +25,7 @@
 .taskForm textarea::placeholder {
   padding-left: 0.5rem;
   text-align: left;
-  line-height: 3.3rem; /* Igual à altura do textarea */
+  line-height: 3.3rem;
 }
 
 .taskForm button {
